@@ -1,0 +1,25 @@
+<head>
+  <title>Corona-Radius-Karte</title>
+</head>
+<body>
+<h3>Corona-Radius-Karte</h3>
+<p>In Deutschland gelten partiell Bewegungseinschränkungen um den eigenen Wohnort.
+    Finde heraus, welche Fläche du mit einem Radius von 15 km um deinen Wohnort abdecken kannst.
+</p>
+<form action="/" method="POST">
+        <!-- input you want to work with -->
+        <input type="text" name="number" value="Adresse">
+
+        <!-- submit button -->
+        <input type="submit" value="Radius anzeigen">
+</form>
+
+{% if result and coords %}
+    <p>Ein Radius von 15 km rund um {{ result }} {{ coords }} sieht wie folgt aus:</p>
+    <iframe width=100% height="80%" src="../maps/map_radius.html"></iframe>
+{% endif %}
+{% if result and not coords %}
+    <p>Fehlerhafte Eingabe.</p>
+{% endif %}
+
+</body>
